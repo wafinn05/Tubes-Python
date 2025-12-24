@@ -99,8 +99,12 @@ def prediksi_data():
     kolesterol = int(input("Kolesterol: "))
     detak = int(input("Detak jantung maksimum: "))
 
-    data_input = [[umur, tekanan, kolesterol, detak]]
+    data_input = pd.DataFrame(
+    [[umur, tekanan, kolesterol, detak]],
+    columns=["age", "trtbps", "chol", "thalachh"]
+)
     hasil = model.predict(data_input)
+
 
     print("\nHASIL PREDIKSI")
     if hasil[0] == 1:
